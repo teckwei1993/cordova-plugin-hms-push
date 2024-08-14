@@ -1,5 +1,5 @@
 /*
-    Copyright 2020-2022. Huawei Technologies Co., Ltd. All rights reserved.
+    Copyright 2020-2024. Huawei Technologies Co., Ltd. All rights reserved.
 
     Licensed under the Apache License, Version 2.0 (the "License")
     you may not use this file except in compliance with the License.
@@ -14,20 +14,16 @@
     limitations under the License.
 */
 
-export declare function asyncExec(
-  clazz: string,
-  reference: string,
-  args?: any[]
-): Promise<any>;
-declare type Handler = (data: any) => void;
+export declare function asyncExec(clazz: string, reference: string, args?: any[]): Promise<any>;
+type Handler = (data: any) => void;
 declare global {
-  interface Window {
-    hmsEventHandlers: {
-      [key: string]: Handler[];
-    };
-    hmsEventHandler: (eventName: string, data: any) => void;
-    registerHMSEvent: (eventName: string, handler: Handler) => void;
-    unregisterHMSEvent: (eventName: string, handler?: Handler) => void;
-  }
+    interface Window {
+        hmsEventHandlers: {
+            [key: string]: Handler[];
+        };
+        hmsEventHandler: (eventName: string, data: any) => void;
+        registerHMSEvent: (eventName: string, handler: Handler) => void;
+        unregisterHMSEvent: (eventName: string, handler?: Handler) => void;
+    }
 }
 export {};
